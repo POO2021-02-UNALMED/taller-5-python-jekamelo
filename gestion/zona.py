@@ -2,13 +2,13 @@ from gestion.zoologico import Zoologico
 
 class Zona:
 
-    def __init__(self,nombre,zoo = Zoologico(None,None)):
+    def __init__(self,nombre,zoo = None):
         self._nombre = nombre
         self._zoo = zoo
         self._animales = []
 
     def cantidadAnimales(self):
-        return 2
+        return len(self._animales)
 
     def getNombre(self):
         return self._nombre
