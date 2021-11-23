@@ -4,11 +4,13 @@ from zooAnimales.animal import Animal
 class Anfibio (Animal):
     ranas = 0
     salamandras = 0
+    _cantidadAnfibios = 0
 
     def __init__(self, nombre, edad, habitat, genero,colorPiel,venenoso):
         super().__init__(nombre, edad, habitat, genero)
         self._colorPiel = colorPiel
         self._venenoso = venenoso
+        Anfibio._cantidadAnfibios += 1
 
     def isVenenoso(self):
         return self._venenoso
@@ -26,6 +28,10 @@ class Anfibio (Animal):
     def crearSalamandra(cls,nombre,edad,genero):
         cls.salamandras += 1
         salamandra = Anfibio(nombre,edad,"selva",genero,"rojo",True)
-        return salamandra        
+        return salamandra
+
+    @classmethod
+    def cantidadAnfibios(cls ):
+        return Anfibio._cantidadAnfibios            
 
                 

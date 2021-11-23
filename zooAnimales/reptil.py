@@ -3,12 +3,14 @@ from zooAnimales.animal import Animal
 class Reptil (Animal):
     serpientes = 0
     iguanas = 0
+    _cantidadReptiles = 0
 
 
     def __init__(self, nombre, edad, habitat, genero,colorEscamas,largoCola):
         super().__init__(nombre, edad, habitat, genero)
         self._colorEscamas = colorEscamas
         self._largoCola = largoCola
+        Reptil._cantidadReptiles += 1
 
     def getColorEscamas(self):
         return self._colorEscamas
@@ -25,4 +27,8 @@ class Reptil (Animal):
     def crearIguana(cls,nombre,edad,genero):
         cls.iguanas += 1
         iguana = Reptil(nombre,edad,"jungla",genero,"verde",3)        
-        return iguana        
+        return iguana 
+
+    @classmethod
+    def cantidadReptiles(cls):
+        return cls._cantidadReptiles           

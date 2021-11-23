@@ -3,11 +3,13 @@ from zooAnimales.animal import Animal
 class Pez (Animal):
     salmones = 0
     bacalaos = 0
+    _cantidadPeces = 0
 
     def __init__(self, nombre, edad, habitat, genero,colorEscamas,cantidadAletas):
         super().__init__(nombre, edad, habitat, genero)
         self._colorEscamas = colorEscamas
         self._cantidadAletas = cantidadAletas
+        Pez._cantidadPeces += 1
 
     def getColorEscamas(self):
         return self._colorEscamas
@@ -25,4 +27,8 @@ class Pez (Animal):
         cls.bacalaos += 1
         bacalao = Pez(nombre,edad,"oceano",genero,"gris",6)
         return bacalao
+
+    @classmethod
+    def cantidadPeces(cls):
+        return Pez._cantidadPeces    
                 
